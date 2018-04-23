@@ -1,0 +1,70 @@
+{
+  "name": "react-responsive-ssr",
+  "version": "0.1.0",
+  "description": "React Responsive with SSR support",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinum/react-responsive-ssr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infinum/react-responsive-ssr/issues"
+  },
+  "homepage": "https://github.com/infinum/react-responsive-ssr#readme",
+  "author": "Infinum JavaScript Team <hello@infinum.co>",
+  "license": "MIT",
+  "devDependencies": {
+    "@infinumjs/tslint-config-react": "^2.0.0-beta.4",
+    "@types/jest": "^22.2.2",
+    "@types/node": "^9.6.1",
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.3.12",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-responsive": "^3.0.0",
+    "jest": "^22.4.3",
+    "mobile-detect": "^1.4.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-responsive": "^4.0.3",
+    "rollup": "^0.57.1",
+    "rollup-plugin-typescript2": "^0.12.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "ts-jest": "^22.4.2",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1"
+  },
+  "peerDependencies": {
+    "mobile-detect": "^1.4.1",
+    "react-responsive": "^4.0.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "watch": "jest --watch --coverage",
+    "benchmark": "jest benchmark",
+    "benchmark-watch": "jest benchmark --watch",
+    "lint": "tslint --project .",
+    "prepublish": "npm run build",
+    "build": "rollup -c"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/test/",
+      "/node_modules/",
+      "../datx-utils/dist"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testRegex": "test/(.*).ts",
+    "transform": {
+      ".ts": "ts-jest"
+    }
+  }
+}
