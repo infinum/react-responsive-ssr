@@ -72,7 +72,7 @@ The [MIT License](LICENSE)
 
 ## Credits
 
-datx is maintained and sponsored by
+react-responsive-ssr is maintained and sponsored by
 [Infinum](http://www.infinum.co).
 
 <img src="https://infinum.co/infinum.png" width="264">
