@@ -11,7 +11,7 @@ export interface IMediaQuerySSRProps extends MediaQueryProps {
 const MediaQueryHOC: React.SFC<IMediaQuerySSRProps> = ({
   children,
   responsive,
-  ...rest,
+  ...rest
 }) => {
   const values: any = responsive ?
     {
