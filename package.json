@@ -16,20 +16,21 @@
   "homepage": "https://github.com/infinum/react-responsive-ssr#readme",
   "author": "Infinum JavaScript Team <hello@infinum.co>",
   "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  },
   "devDependencies": {
-    "@infinumjs/tslint-config-react": "^2.0.0-beta.4",
+    "@infinumjs/tslint-config-react": "^2.0.0-beta.6",
     "@types/jest": "^22.2.2",
     "@types/node": "^9.6.1",
-    "@types/prop-types": "^15.5.2",
+    "@types/prop-types": "^15.5.6",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
     "@types/react-responsive": "^3.0.0",
     "jest": "^22.4.3",
-    "mobile-detect": "^1.4.1",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-responsive": "^4.0.3",
+    "mobile-detect": "^1.4.3",
+    "react": "^16.5.2",
+    "react-responsive": "^5.0.0",
     "rollup": "^0.57.1",
     "rollup-plugin-typescript2": "^0.12.0",
     "rollup-plugin-uglify": "^3.0.0",
@@ -38,10 +39,9 @@
     "typescript": "^2.8.1"
   },
   "peerDependencies": {
-    "mobile-detect": "^1.4.1",
-    "react-responsive": "^4.0.3",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "mobile-detect": "^1.4.3",
+    "react": "^16.0.0",
+    "react-responsive": "^5.0.0"
   },
   "scripts": {
     "test": "jest --coverage",
