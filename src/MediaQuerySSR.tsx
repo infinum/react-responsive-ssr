@@ -13,17 +13,19 @@ const MediaQueryHOC: React.SFC<IMediaQuerySSRProps> = ({
   responsive,
   ...rest
 }) => {
-  const values: any = responsive ?
+  const serverProps: any = responsive ?
     {
-      deviceWidth: responsive.fakeWidth,
-      width: responsive.fakeWidth,
+      values: {
+        deviceWidth: responsive.fakeWidth,
+        width: responsive.fakeWidth,
+      },
     } :
     null;
 
   return (
     <MediaQuery
       {...rest}
-      values={values}
+      {...serverProps}
     >
       {children}
     </MediaQuery>

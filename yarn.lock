@@ -63,9 +63,10 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-responsive@^3.0.0":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-3.0.1.tgz#6388b32a99c813942790d2a54c9aa3f69d99420b"
+"@types/react-responsive@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-responsive/-/react-responsive-3.0.2.tgz#428fdaf12c28df010508d3374c71e027b1989d8b"
+  integrity sha512-sX4l0wwGvN9YaTUaRGyqqFJVJ3eU+zEbq5Db8sTWnd2uPYkBH1A4yKyYa04mxi+ZKaexSydCqRU1M9Q/+lrlCQ==
   dependencies:
     "@types/react" "*"
 
@@ -2722,9 +2723,10 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-responsive@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-5.0.0.tgz#b6e559b2ce8c4d82b0d47a7a78a74645b977e4af"
+react-responsive@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-6.0.0.tgz#da43c741ad719c70253d8de91ed3cbc798221bbf"
+  integrity sha512-f1o8npe9gJTlJ6/3XPQ9/PqhmZ/CsKmKl+evdn6UqI99ybx2Ev7ynScbziFRPtn13DvK5Upl0M+NQEYoX1FqzQ==
   dependencies:
     hyphenate-style-name "^1.0.0"
     matchmediaquery "^0.3.0"
