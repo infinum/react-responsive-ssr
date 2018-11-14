@@ -35,5 +35,7 @@ export class Responsive {
       // nothing set, default to our defaultSize
       this.fakeWidth = defaultSizes.desktop;
     }
+
+    console.log(this.fakeWidth)
   }
 }

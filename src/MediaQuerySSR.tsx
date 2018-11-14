@@ -2,13 +2,13 @@
 import * as React from 'react';
 import MediaQuery, { MediaQueryProps } from 'react-responsive';
 import { Responsive } from './Responsive';
-import { IResponsiveComponent, withResponsive } from './withResponsive';
+import { withResponsive } from './withResponsive';
 
 export interface IMediaQuerySSRProps extends MediaQueryProps {
   responsive?: Responsive;
 }
 
-const MediaQueryHOC: React.SFC<IMediaQuerySSRProps> = ({
+const MediaQueryComponent: React.SFC<IMediaQuerySSRProps> = ({
   children,
   responsive,
   ...rest
@@ -32,4 +32,4 @@ const MediaQueryHOC: React.SFC<IMediaQuerySSRProps> = ({
   );
 };
 
-export const MediaQuerySSR: IResponsiveComponent = withResponsive(MediaQueryHOC);
+export const MediaQuerySSR = withResponsive(MediaQueryComponent);

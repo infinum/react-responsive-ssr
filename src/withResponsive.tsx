@@ -1,28 +1,21 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
+
+import { ResponsiveConsumer } from './context';
 import { Responsive } from './Responsive';
 
-export interface IResponsiveComponent {
-  new(props?: any, context?: any): React.Component<any, any>;
-}
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-export interface IResponsiveContext {
-  responsive?: Responsive;
-}
-
-export const withResponsive = (
-    Child: string |
-    React.SFC<any> |
-    React.ClassType<any, any, any> |
-    React.ComponentClass<any>,
-) => {
-  return class ResponsiveComponent extends React.Component<{}, IResponsiveContext> {
-    public static contextTypes = {
-      responsive: PropTypes.object,
-    };
-
-    public render() {
-      return <Child {...this.props} responsive={this.context.responsive} />;
-    }
+export function withResponsive<
+    P extends { responsive?: Responsive },
+    R = Omit<P, 'responsive'>
+  >(
+    Component: React.ComponentClass<P> | React.StatelessComponent<P>,
+  ): React.SFC<R> {
+  return function BoundComponent(props: R) {
+    return (
+      <ResponsiveConsumer>
+        {(value) => <Component {...props} responsive={value} />}
+      </ResponsiveConsumer>
+    );
   };
-};
+}

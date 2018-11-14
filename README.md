@@ -20,7 +20,7 @@ yarn add react react-dom prop-types react-responsive mobile-detect react-respons
 With Next.js:
 
 ```typescript
-import { Provider, Responsive } from 'react-responsive-ssr';
+import { ResponsiveProvider, Responsive } from 'react-responsive-ssr';
 
 class App extends React.Component<any, any> {
   public static async getInitialProps(context: INextContext): Promise<any> {
@@ -37,9 +37,9 @@ class App extends React.Component<any, any> {
 
   public render() {
     return (
-      <Provider responsive={this.props.responsive}>
+      <ResponsiveProvider responsive={this.props.responsive}>
         // ...
-      </Provider>
+      </ResponsiveProvider>
     );
   }
 }
