@@ -1,6 +1,6 @@
 // see also components/ScreenSize for another way to consume this data
 import * as React from 'react';
-import MediaQuery, { MediaQueryProps } from 'react-responsive';
+import MediaQuery, { MediaQueryMatchers, MediaQueryProps } from 'react-responsive';
 import { Responsive } from './Responsive';
 import { withResponsive } from './withResponsive';
 
@@ -13,19 +13,17 @@ const MediaQueryComponent: React.SFC<IMediaQuerySSRProps> = ({
   responsive,
   ...rest
 }) => {
-  const serverProps: any = responsive ?
-    {
-      values: {
+  const values: Partial<MediaQueryMatchers> = responsive
+    ? {
         deviceWidth: responsive.fakeWidth,
         width: responsive.fakeWidth,
-      },
-    } :
-    null;
+      }
+    : {};
 
   return (
     <MediaQuery
       {...rest}
-      {...serverProps}
+      values={values}
     >
       {children}
     </MediaQuery>
