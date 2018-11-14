@@ -37,7 +37,7 @@ class App extends React.Component<any, any> {
 
   public render() {
     return (
-      <ResponsiveProvider responsive={this.props.responsive}>
+      <ResponsiveProvider value={this.props.responsive}>
         // ...
       </ResponsiveProvider>
     );
