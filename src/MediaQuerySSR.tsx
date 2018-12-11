@@ -4,30 +4,53 @@ import MediaQuery, { MediaQueryMatchers, MediaQueryProps } from 'react-responsiv
 import { Responsive } from './Responsive';
 import { withResponsive } from './withResponsive';
 
-export interface IMediaQuerySSRProps extends MediaQueryProps {
+interface IMediaQuerySSRProps extends MediaQueryProps {
   responsive?: Responsive;
 }
 
-const MediaQueryComponent: React.SFC<IMediaQuerySSRProps> = ({
-  children,
-  responsive,
-  ...rest
-}) => {
-  const values: Partial<MediaQueryMatchers> = responsive
-    ? {
-        deviceWidth: responsive.fakeWidth,
-        width: responsive.fakeWidth,
-      }
-    : {};
+interface IMediaQuerySSRState {
+  isMounted: boolean;
+}
 
-  return (
-    <MediaQuery
-      {...rest}
-      values={values}
-    >
-      {children}
-    </MediaQuery>
-  );
-};
+class MediaQueryComponent extends React.Component<IMediaQuerySSRProps, IMediaQuerySSRState> {
+  public state: IMediaQuerySSRState;
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isMounted: false,
+    };
+  }
+
+  public componentDidMount() {
+    this.setState(() => ({
+      isMounted: true,
+    }));
+  }
+
+  public render() {
+    const {
+      responsive,
+      ...rest
+    } = this.props;
+
+    const {
+      isMounted,
+    } = this.state;
+
+    const values: Partial<MediaQueryMatchers> | undefined = !isMounted ? {
+      deviceWidth: responsive && responsive.fakeWidth,
+      width: responsive && responsive.fakeWidth,
+    } : undefined;
+
+    return (
+      <MediaQuery
+        values={values}
+        {...rest}
+      />
+    );
+  }
+}
 
 export const MediaQuerySSR = withResponsive(MediaQueryComponent);
