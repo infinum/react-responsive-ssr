@@ -12,6 +12,13 @@ interface IMediaQuerySSRState {
   isMounted: boolean;
 }
 
+const isBrowser = !!(
+  // tslint:disable-next-line:no-typeof-undefined
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+);
+
 class MediaQueryComponent extends React.Component<IMediaQuerySSRProps, IMediaQuerySSRState> {
   public state: IMediaQuerySSRState;
 
@@ -19,14 +26,17 @@ class MediaQueryComponent extends React.Component<IMediaQuerySSRProps, IMediaQue
     super(props);
 
     this.state = {
-      isMounted: false,
+      isMounted: !Boolean(props.responsive),
     };
   }
 
   public componentDidMount() {
-    this.setState(() => ({
-      isMounted: true,
-    }));
+    // Force two-pass render on client when SSR hydratization happens
+    if (!this.state.isMounted && isBrowser) {
+      this.setState(() => ({
+        isMounted: true,
+      }));
+    }
   }
 
   public render() {
@@ -39,10 +49,12 @@ class MediaQueryComponent extends React.Component<IMediaQuerySSRProps, IMediaQue
       isMounted,
     } = this.state;
 
-    const values: Partial<MediaQueryMatchers> | undefined = !isMounted ? {
-      deviceWidth: responsive && responsive.fakeWidth,
-      width: responsive && responsive.fakeWidth,
-    } : undefined;
+    const values: Partial<MediaQueryMatchers> | undefined = isMounted
+      ? undefined
+      : {
+          deviceWidth: responsive && responsive.fakeWidth,
+          width: responsive && responsive.fakeWidth,
+        };
 
     return (
       <MediaQuery
