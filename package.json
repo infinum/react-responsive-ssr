@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-ssr",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "React Responsive with SSR support",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
