@@ -26,8 +26,8 @@ class App extends React.Component<any, any> {
   public static async getInitialProps(context: INextContext): Promise<any> {
     let responsive: Responsive;
 
-    if (context.req && isServer) {
-      this.responsive = new Responsive(context.req);
+    if (context.req) {
+      responsive = new Responsive(context.req);
     }
 
     return {
