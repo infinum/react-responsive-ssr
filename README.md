@@ -1,3 +1,6 @@
+## [DEPRECATED]
+*This project has reached the end of its development. Please use builtin solution [eact-responsive#server-side-rendering](https://www.npmjs.com/package/react-responsive#server-side-rendering).*
+
 # React Responsive SSR
 
 // TODO
